@@ -1,6 +1,20 @@
-# Getting Started with Create React App
+# Habit Tracker Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and interactive habit tracker web application that allows users to manage their daily habits, track progress for each day of the week, reorder habits using drag-and-drop functionality, and edit habit titles inline. Completed habits are displayed separately for better organization.
+
+---
+
+## Features
+
+- **Add Habits**: Create new habits to track.
+- **Edit Habit Titles**: Click on a habit title to edit it inline and save changes.
+- **Track Weekly Progress**: Toggle the completion status for each day of the week.
+- **Drag-and-Drop**: Reorder habits using drag-and-drop functionality.
+- **Mark as Completed**: Mark habits as completed and move them to a separate "Completed Habits" section.
+- **Delete Habits**: Remove habits from the list.
+- **Confetti Celebration**: Celebrate when a habit is fully completed for the week.
+
+---
 
 ## Available Scripts
 
@@ -24,47 +38,76 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `npm run eject`
+### Adding a Habit
+1. Enter the name of the habit in the input field.
+2. Press `Enter` to add the habit to the list.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Editing a Habit Title
+1. Click on the habit title to make it editable.
+2. Modify the title and press `Enter` to save or `Escape` to cancel.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Tracking Weekly Progress
+1. Click on the day boxes (e.g., M, T, W) to toggle the completion status for that day.
+2. A green background indicates the day is completed.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Reordering Habits
+1. Drag a habit by its header to reorder it in the list.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Marking Habits as Completed
+1. Click the checkmark icon next to a habit to mark it as completed.
+2. Completed habits will move to the "Completed Habits" section.
 
-## Learn More
+### Deleting Habits
+1. Click the "Delete" button to remove a habit from the list.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Folder Structure
 
-### Code Splitting
+habit-tracker-web/
+├── public/                 # Public assets
+├── src/
+│   ├── App.js              # Main React component
+│   ├── App.css             # Styling for the app
+│   ├── index.js            # Entry point for the app
+│   └── components/         # (Optional) Additional components
+├── package.json            # Project dependencies and scripts
+└── README.md               # Documentation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Customization
 
-### Analyzing the Bundle Size
+   Styling
+      * Modify the App.css file to customize the appearance of the app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   Confetti Celebration
+      * The confetti effect is triggered when a habit is fully completed for the week. You can adjust the particle count, spread, and origin in the toggleDay function.
 
-### Making a Progressive Web App
+## Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  * react: ^18.0.0
+  * @hello-pangea/dnd: ^18.0.1
+  * ionicons: ^5.5.2
+  * canvas-confetti: ^1.4.0
 
-### Advanced Configuration
+## Future Enhancement
+* Show progression of goal over time in accordion
+* Add notification
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project is licensed under the MIT License. Feel free to use and modify it as needed.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgments
+
+- [React](https://reactjs.org/)
+- [@hello-pangea/dnd](https://github.com/hello-pangea/dnd)
+- [Ionicons](https://ionic.io/ionicons)
+- [canvas-confetti](https://www.npmjs.com/package/canvas-confetti)

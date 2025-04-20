@@ -1,38 +1,348 @@
-.App {
+/* Container for the entire app */
+.app {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 30px;
+  background-color: #fff;
+  min-height: 100vh;
+  width: clamp(380px, 100%, 400px);
+  margin: 0 auto;
+  color: #3a3167;
+  box-sizing: border-box;
+}
+
+/* Title styling */
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  padding-top: 40px;
+}
+
+/* Input row container */
+.add-habit {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 32px;
+  align-items: center;
+}
+
+/* Input field styling */
+.input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* Button styling */
+.button {
+  padding: 10px 20px;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #2e2554;
+}
+
+/* habit list container */
+.habit-list {
+  margin-top: 20px;
+}
+
+/* Individual habit item */
+.habit-item {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.habit-item.habit-item--deleted {
+  opacity: 0.5;
+}
+
+.habit-item--finished {
+  border: 3px solid #29C48D;
+}
+
+.habit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.habit-title {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.habit-title input {
+  font-size: 16px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.habit-title span {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.habit-item.habit-item--deleted .habit-title {
+  text-decoration: line-through;
+}
+
+/* Week row container */
+.week-row {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+/* Day styling */
+.day {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  line-height: 32px;
+  cursor: pointer; 
+  font-weight: bold;
+  font-size: 12px;
+  color: #bbb;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.day--completed {
+  background-color: #ffffff;
+  border-color: #29C48D;
+  border-width: 3px;
+  color: #29C48D;
+}
+
+.deleted-list {
+  margin-top: 4rem;
+}
+
+.deleted-title {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.habit-item.habit-item--deleted {
+  padding: 10px 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Delete all completed button */
+.delete-completed {
+  color: #ff7171;
+  margin-left: 20px;
+  font-size: 16px;
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  border: none;
+  background: none;
+  gap: 10px;
+  font-weight: 400;
 }
 
-.App-link {
-  color: #61dafb;
+.checkmark {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  color: #ccc;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Active state (habit not yet completed) */
+.habit-item.habit-item--completed .checkmark {
+  color: #29C48D;
+}
+
+.add-icon {
+  color: #29c49d;
+  font-size: 32px;
+}
+
+.delete-icon {
+  color: #ff7171;
+  font-size: 20px;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+/* Progress tracker styles */
+.goal-input, .progress-input {
+  width: 50px;
+  margin-left: 10px;
+}
+
+.progress-container {
+  margin-top: 10px;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-text {
+  font-size: 12px;
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-text input {
+  margin: 0;
+  border: 1px solid #eee;
+}
+
+.percentage-text {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+.editable-title-input {
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 2px dashed #ccc;
+  width: 100%;
+  text-align: center;
+}
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.editable-title-input:focus {
+  border-bottom: 2px solid #29C48D;
+}
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 220px;
+  background-color: #444;
+  color: #fff;
+  text-align: center;
+  padding: 6px;
+  border-radius: 4px;
+
+  position: absolute;
+  bottom: 125%; /* above the input */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.8rem;
+}
+
+.tooltip-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.editable-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.edit-icon {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.editable-title:hover .edit-icon {
+  opacity: 1;
+}
+.editable-title:hover .editable-title-input {
+  border-bottom: 2px solid #29C48D;
+}
+.editable-title-input:focus + .edit-icon {
+  opacity: 1;
+}
+.editable-title-input:focus {
+  border-bottom: 2px solid #29C48D;
+}
+.editable-title-input:focus + .edit-icon {
+  opacity: 1;
+}
+.editable-title-input:focus + .edit-icon:hover {
+  color: #29C48D;
+}
+
+.grip-icon {
+  font-size: 1.2rem;
+  color: #bbb;
+  cursor: grab;
+  margin-right: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.habit-item:hover .grip-icon {
+  color: #666;
+}
+.habit-item:active .grip-icon {
+  cursor: grabbing;
+  color: #29C48D;
+}
+.habit-item:active .grip-icon:hover {
+  color: #29C48D;
+}
+.habit-item:active .grip-icon:focus {
+  outline: none;
+}
+.habit-item:active .grip-icon:focus-visible {
+  outline: none;
+}
+.habit-item:active .grip-icon:focus-visible:hover {
+  color: #29C48D;
 }
