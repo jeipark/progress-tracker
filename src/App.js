@@ -212,7 +212,7 @@ const App = () => {
         ) : (
           <div className="editable-title" onClick={() => setIsEditingTitle(true)}>
             <h1 className="title">{title}</h1>
-            <ion-icon name="pencil" class="edit-icon"></ion-icon>
+            <ion-icon name="create-outline" class="edit-icon"></ion-icon>
           </div>
         )}
       </div>
@@ -231,7 +231,7 @@ const App = () => {
               }
             }}
           />
-          <span className="tooltip-text">Leave goal blank to use daily check-ins</span>
+          {/* <span className="tooltip-text"></span> */}
         </div>
         <div className="tooltip-wrapper">
           <input
@@ -242,7 +242,7 @@ const App = () => {
             value={goalInput}
             onChange={(e) => setGoalInput(e.target.value)}
           />
-          <span className="tooltip-text">Optionally, specify a numerical goal in the "Goal" input field</span>
+          <span className="tooltip-text">Leave this field blank to use as a daily check-ins or specify a numerical to track progress</span>
         </div>
 
         <button
@@ -279,7 +279,6 @@ const App = () => {
                     >
                       <div className="habit-header">
                         <ion-icon name="reorder-three" class="grip-icon" {...provided.dragHandleProps}></ion-icon>
-
                         <div className="habit-title">
                           {editingId === habit.id ? (
                             <input
@@ -294,7 +293,10 @@ const App = () => {
                               autoFocus
                             />
                           ) : (
-                            <span onClick={() => startEditing(habit.id, habit.name)}>{habit.name}</span>
+                            <div className="editable-title" onClick={() => setIsEditingTitle(true)}>
+                              <span onClick={() => startEditing(habit.id, habit.name)}>{habit.name}</span>
+                                <ion-icon name="create-outline" class="edit-icon"></ion-icon>
+                            </div>
                           )}
                         </div>
                         <button
